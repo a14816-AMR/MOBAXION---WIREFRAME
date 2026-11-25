@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe — Mobaxion (one page)</title>
+<style>
+  :root{
+    --ink:#1b2333; --mute:#7A869F; --line:#c9d0de; --bg:#f4f6fa; --box:#e6eaf2;
+    --navy:#14233a; --green:#18C77A; --note:#fff4c2; --noteb:#e0c24a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:#dfe4ee}
+  .legend{max-width:1100px;margin:16px auto 0;padding:0 16px;font-size:13px;color:#46506a}
+  .legend b{color:var(--navy)}
+  .page{max-width:1100px;margin:16px auto 40px;background:var(--bg);border:2px solid var(--ink);}
+  section{position:relative;padding:56px 40px;border-bottom:2px dashed var(--line)}
+  section:last-child{border-bottom:0}
+  .tag{position:absolute;top:8px;left:8px;font:700 11px/1 monospace;background:var(--ink);color:#fff;padding:4px 7px;letter-spacing:.5px}
+  .note{position:absolute;top:8px;right:8px;max-width:260px;font-size:11.5px;background:var(--note);border:1px solid var(--noteb);padding:6px 8px;color:#5a4a00}
+  h1,h2,h3{margin:0}
+  h1{font-size:40px;line-height:1.1}
+  h2{font-size:28px;text-align:center;margin-bottom:8px}
+  .sub{text-align:center;color:var(--mute);margin:0 0 32px}
+  .ph{background:var(--box);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:13px;text-align:center}
+  .btn{display:inline-block;padding:12px 22px;border:2px solid var(--navy);font-weight:600;font-size:14px}
+  .btn.p{background:var(--navy);color:#fff}
+  .btn.s{background:#fff;color:var(--navy)}
+  .lines i{display:block;height:9px;background:var(--line);margin:8px 0;border-radius:2px}
+  .lines i:nth-child(2){width:88%}.lines i:nth-child(3){width:70%}
+  .grid{display:grid;gap:20px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:#fff;border:2px solid var(--line);padding:20px}
+  .card h3{font-size:16px;margin:12px 0 4px}
+  .card p{margin:0;font-size:13px;color:var(--mute)}
+  .ico{width:44px;height:44px;border-radius:50%;background:var(--box);border:2px solid var(--line)}
+  /* nav */
+  nav{display:flex;align-items:center;gap:24px;padding:16px 40px;background:#fff;border-bottom:2px solid var(--ink);position:relative}
+  nav .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:22px;color:var(--navy)}
+  nav .logo svg{width:28px;height:34px}
+  nav .logo em{font-style:normal;color:var(--green)}
+  .logo-img{height:34px;width:auto;display:block}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0;font-size:14px}
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .hero p{color:var(--mute);margin:16px 0 24px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .badges{display:flex;gap:10px;margin-top:20px;font-size:12px;color:var(--mute)}
+  .badges span{border:1px dashed var(--line);padding:5px 9px}
+  .phone{width:250px;height:480px;margin:auto;border:3px solid var(--ink);border-radius:30px;background:#fff;padding:14px;position:relative;overflow:hidden}
+  .finder{display:flex;align-items:stretch;max-width:600px;gap:14px;margin-bottom:6px}
+  .finder .dl{border-radius:10px;white-space:nowrap;display:flex;align-items:center}
+  .finder .sbox{flex:1;background:#fff;border:2px solid var(--line);border-right:0;border-radius:10px 0 0 10px;padding:14px;color:var(--mute);font-size:14px}
+  .finder .sgo{background:var(--navy);color:#fff;border-radius:0 10px 10px 0;padding:0 18px;display:flex;align-items:center;margin-left:-14px}
+  .phones{position:relative;height:460px}
+  .phones .phone{position:absolute;width:210px;height:400px;margin:0}
+  .phones .p1{left:0;top:40px;transform:rotate(-3deg)}
+  .phones .p2{left:130px;top:0;transform:rotate(3deg);z-index:2}
+  .ring{width:120px;height:120px;border-radius:50%;border:5px solid var(--green);margin:22px auto 14px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring b{font-size:24px}.ring small{font-size:10px;color:var(--mute)}
+  .gbtn{background:var(--green);color:#fff;text-align:center;font-size:11px;font-weight:700;padding:7px;border-radius:4px}
+  .row{background:var(--bg);border:1px solid var(--line);margin-top:8px;padding:8px;font-size:11px}
+  .search{border:2px solid var(--line);border-radius:20px;padding:8px 12px;font-size:12px;color:var(--mute);background:#fff}
+  .map{position:absolute;inset:60px 14px 90px;background:var(--box);border:2px solid var(--line)}
+  .map:before,.map:after{content:"";position:absolute;background:var(--line)}
+  .map:before{left:0;right:0;top:45%;height:8px}
+  .map:after{top:0;bottom:0;left:38%;width:8px}
+  .pin{position:absolute;width:20px;height:20px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff}
+  .pin.g{background:var(--green)}.pin.r{background:#e5484d}
+  .sheet{position:absolute;left:0;right:0;bottom:0;height:84px;background:#fff;border-top:2px solid var(--line);padding:10px 14px;font-size:12px}
+  .sheet b{display:block;font-size:13px}
+  /* steps */
+  .step{text-align:center}
+  .step .n{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:700}
+  .flow{display:flex;justify-content:center;gap:8px;margin-top:28px;font:12px monospace;color:var(--mute);flex-wrap:wrap}
+  .flow span{border:1px dashed var(--line);padding:6px 10px;background:#fff}
+  /* showcase */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .split ul{padding-left:18px;margin:16px 0;font-size:14px;line-height:1.9}
+  .dark{background:var(--navy);color:#fff}
+  .dark .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
+  .dark .card p{color:#cdd6ee}
+  .dark h2,.dark .sub{color:#fff}
+  .stat{text-align:center}
+  .stat b{display:block;font-size:34px;color:var(--green)}
+  .stat span{font-size:13px;color:var(--mute)}
+  details{background:#fff;border:2px solid var(--line);padding:14px 18px;margin-bottom:10px;font-size:14px}
+  summary{font-weight:600;cursor:pointer}
+  .cta{background:var(--box);text-align:center}
+  .form{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+  .field{width:240px;border:2px solid var(--line);background:#fff;padding:12px;font-size:13px;color:var(--mute);text-align:left}
+  footer{padding:32px 40px;background:var(--ink);color:#c9d0de;font-size:13px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;position:relative}
+  footer b{color:#fff;display:block;margin-bottom:8px}
+  section:nth-of-type(1){background:linear-gradient(135deg,#f3fbf6,#eaf7f0 60%,#f4f6fa)}
+  @media(max-width:820px){
+    .phones{height:430px;max-width:340px;margin:auto;width:100%}
+    .phones .phone{width:180px;height:360px}.phones .p2{left:130px}
+    .finder{flex-wrap:wrap}
+    section{padding:56px 20px}
+    .hero,.split,.g3,.g4,footer{grid-template-columns:1fr}
+    nav ul{display:none}
+    h1{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<div class="legend">
+  <b>Wireframe — Mobaxion (one page).</b> Baixa fidelidade: cinzas = placeholders, azul/verde da marca só nos pontos de ação e status.
+  <b>Etiquetas pretas</b> = nome da seção · <b>notas amarelas</b> = o que vai ali. Funciona no celular (redimensione a janela).
+</div>
+
+<div class="page">
+
+  <!-- 0 NAV -->
+  <nav>
+    <img class="logo-img" src="logo-mobaxion.png" alt="Mobaxion">
+    <ul><li>Problema</li><li>A plataforma</li><li>Como usar</li><li>Para quem</li><li>Dúvidas</li></ul>
+    <span class="btn p" style="padding:8px 16px">Quero saber mais</span>
+  </nav>
+
+  <!-- 1 HERO -->
+  <section>
+    <span class="tag">01 · HERO</span>
+    <span class="note">Foco exclusivo: vagas reservadas a pessoas com deficiência física. Promessa em 1 frase + CTA.</span>
+    <div class="hero" style="margin-top:20px;min-height:460px">
+      <div>
+        <h1 style="font-size:52px;color:var(--navy)">Sua vaga reservada, sem procurar.</h1>
+        <p style="color:var(--ink);font-size:16px;line-height:1.6;max-width:520px">A Mobaxion é focada exclusivamente nas vagas de estacionamento reservadas a pessoas com deficiência física. Localize, veja a disponibilidade e encontre opções perto do seu destino, como numa navegação.</p>
+        <div class="ctas"><span class="btn p">Quero saber mais</span><span class="btn s">A plataforma ↓</span></div>
+        <div class="badges"><span>● Veja vagas livres em tempo real</span><span>● Perto do seu destino</span><span>● Só vagas livres para você</span></div>
+      </div>
+      <div class="ph" style="height:400px">ilustração / foto<br>(pessoa chegando a uma vaga reservada livre)</div>
+    </div>
+  </section>
+
+  <!-- 2 PROBLEMA -->
+  <section>
+    <span class="tag">02 · PROBLEMA</span>
+    <span class="note">Dois problemas do README/briefing: dificuldade de achar vaga + uso indevido. Efeito: perda de mobilidade e autonomia.</span>
+    <h2>Você já passou por isso?</h2><p class="sub">Achar uma vaga reservada livre é difícil, e nem sempre ela é respeitada.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ico"></div><h3>Tempo perdido</h3><p>Procurar vagas livres perto do seu destino.</p></div>
+      <div class="card"><div class="ico"></div><h3>Uso indevido</h3><p>Veículos sem autorização ocupando vagas reservadas.</p></div>
+      <div class="card"><div class="ico"></div><h3>Menos autonomia</h3><p>Isso prejudica a mobilidade e independência de quem realmente precisa.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 A PLATAFORMA -->
+  <section style="background:#fff">
+    <span class="tag">03 · A PLATAFORMA</span>
+    <span class="note">O cliente só vê as vagas livres. Nada de monitoramento ou detalhe técnico.</span>
+    <h2>Uma plataforma para você</h2><p class="sub">Você vê apenas as vagas reservadas que estão livres.</p>
+    <div class="split">
+      <div class="ph" style="height:260px">ilustração<br>(mapa mostrando só vagas livres)</div>
+      <div class="grid" style="gap:14px">
+        <div class="card"><div class="ico"></div><h3>Vagas livres perto de você</h3><p>Localize vagas reservadas disponíveis e encontre as mais próximas do destino, como numa navegação.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 BENEFÍCIOS -->
+  <section>
+    <span class="tag">04 · O QUE VOCÊ GANHA</span>
+    <span class="note">Benefícios para a pessoa com deficiência física: ver só as vagas livres, perto do destino.</span>
+    <h2>O que você vai ter</h2><p class="sub">Tudo para chegar com tranquilidade.</p>
+    <div class="grid g4">
+      <div class="card"><div class="ico"></div><h3>Vagas no mapa</h3><p>As vagas reservadas da cidade num só lugar.</p></div>
+      <div class="card"><div class="ico"></div><h3>Só vagas livres</h3><p>Você vê apenas as que estão disponíveis agora.</p></div>
+      <div class="card"><div class="ico"></div><h3>Perto do destino</h3><p>As opções mais próximas de onde você vai.</p></div>
+      <div class="card"><div class="ico"></div><h3>Feita para você</h3><p>Focada só em vagas reservadas a pessoas com deficiência física.</p></div>
+    </div>
+  </section>
+
+  <!-- 5 COMO USAR -->
+  <section style="background:#fff">
+    <span class="tag">05 · COMO USAR</span>
+    <span class="note">3 passos do ponto de vista do utilizador, estilo app de navegação.</span>
+    <h2>Como usar</h2><p class="sub">Simples, como uma navegação.</p>
+    <div class="grid g3">
+      <div class="step"><div class="n">1</div><div class="ph" style="height:90px">ilustração</div><h3 style="font-size:16px;margin-top:10px">Diga para onde vai</h3><p style="font-size:13px;color:var(--mute)">Informe o seu destino.</p></div>
+      <div class="step"><div class="n">2</div><div class="ph" style="height:90px">ilustração</div><h3 style="font-size:16px;margin-top:10px">Veja as vagas livres</h3><p style="font-size:13px;color:var(--mute)">Escolha a mais próxima.</p></div>
+      <div class="step"><div class="n">3</div><div class="ph" style="height:90px">ilustração</div><h3 style="font-size:16px;margin-top:10px">Vá até ela</h3><p style="font-size:13px;color:var(--mute)">Estacione e aproveite o seu tempo.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 PARA QUEM -->
+  <section class="dark">
+    <span class="tag">06 · PARA QUEM</span>
+    <span class="note">Público-alvo: pessoas com deficiência física. Parceiros de implementação: municípios e autoridades.</span>
+    <h2>Para quem é a Mobaxion</h2><p class="sub">Feita para quem precisa, implementada com quem pode agir.</p>
+    <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="card"><h3>Pessoas com deficiência física</h3><p>Que precisam de vagas de estacionamento reservadas e querem encontrá-las sem esforço.</p></div>
+      <div class="card"><h3>Municípios e autoridades</h3><p>Parceiros para implementar a solução nas cidades.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 DÚVIDAS -->
+  <section style="background:#fff">
+    <span class="tag">07 · DÚVIDAS</span>
+    <span class="note">Dúvidas do cliente: privacidade, custo, cobertura, quando fica pronto.</span>
+    <h2>Dúvidas frequentes</h2><p class="sub">&nbsp;</p>
+    <div style="max-width:720px;margin:auto">
+      <details open><summary>Meus dados estão protegidos? (LGPD)</summary><p>Resposta curta sobre privacidade.</p></details>
+      <details><summary>Quanto vai custar?</summary></details>
+      <details><summary>Em quais cidades vai funcionar?</summary></details>
+      <details><summary>Quando estará disponível?</summary></details>
+    </div>
+  </section>
+
+  <!-- 8 CTA -->
+  <section class="cta">
+    <span class="tag">08 · CTA FINAL</span>
+    <span class="note">Captura de contato (lista de interessados e municípios parceiros).</span>
+    <h2>Quer ser avisado quando estiver pronto?</h2>
+    <div class="form"><span class="field">Nome</span><span class="field">E-mail</span><span class="btn p">Quero saber mais</span></div>
+  </section>
+
+  <!-- 9 FOOTER -->
+  <footer>
+    <span class="tag" style="background:#fff;color:var(--ink)">09 · FOOTER</span>
+    <div style="padding-top:14px"><b>MOBAXION</b>Vagas reservadas, em tempo real.</div>
+    <div style="padding-top:14px"><b>Seções</b>Problema<br>A plataforma<br>Como usar<br>Para quem</div>
+    <div style="padding-top:14px"><b>Legal</b>Privacidade (LGPD)<br>Termos</div>
+    <div style="padding-top:14px"><b>Contato</b>email@exemplo.com<br>Redes sociais</div>
+  </footer>
+</div>
+</body>
+</html>
